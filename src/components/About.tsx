@@ -46,7 +46,7 @@ const Present = () => {
 				<Link
 					className="text-muted-foreground hover:text-foreground border-b border-muted-foreground hover:border-foreground transition-colors"
 					target="_blank"
-					href="mailto:jainambagrecha16@gmail.com?subject=Hello!&body=Hi, My name is [name] and I have a hiring opportunity that I would like to discuss with you."
+					href="mailto:jainambagrecha16@gmail.com?subject=Hello!&body=Hi,%20My%20name%20is%20[name]%20and%20I%20have%20a%20hiring%20opportunity%20that%20I%20would%20like%20to%20discuss%20with%20you."
 					type="email"
 				>
 					contact me.

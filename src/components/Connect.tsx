@@ -21,10 +21,10 @@ const Connect = () => {
 					<p className="max-w-[6ch] w-full">X</p>
 					<Link
 						className="flex items-center decoration-1 text-muted-foreground decoration-muted-foreground hover:text-foreground hover:decoration-foreground transition-colors border-b border-muted-foreground/0 hover:border-foreground "
-						href={"https://twitter.com/pranav12yoyo"}
+						href={"https://x.com/Jainambagr67095"}
 						target="_blank"
 					>
-						<p className="truncate">@pranav12yoyo</p>
+						<p className="truncate">@Jainambagr67095</p>
 						<ArrowUpRight className="h-4 w-4 ml-1" />
 					</Link>
 				</div>
@@ -43,10 +43,10 @@ const Connect = () => {
 					<p className="max-w-[6ch] w-full">Github</p>
 					<Link
 						className="flex items-center decoration-1 text-muted-foreground decoration-muted-foreground hover:text-foreground hover:decoration-foreground transition-colors border-b border-muted-foreground/0 hover:border-foreground "
-						href={"https://github.com/Neon-20"}
+						href={"https://github.com/jainam-b"}
 						target="_blank"
 					>
-						<p className="truncate">@Neon-20</p>
+						<p className="truncate">@jainam-b</p>
 						<ArrowUpRight className="h-4 w-4 ml-1" />
 					</Link>
 				</div>
@@ -54,10 +54,10 @@ const Connect = () => {
 					<p className="max-w-[6ch] w-full">Linkedin</p>
 					<Link
 						className="flex items-center decoration-1 text-muted-foreground decoration-muted-foreground hover:text-foreground hover:decoration-foreground transition-colors border-b border-muted-foreground/0 hover:border-foreground "
-						href={"https://linkedin.com/in/pranav-rajveer"}
+						href={"https://www.linkedin.com/in/jainam-bagrecha-b56248252/"}
 						target="_blank"
 					>
-						<p className="truncate">@Pranav-Rajveer</p>
+						<p className="truncate">@Jainam-Bagrecha</p>
 						<ArrowUpRight className="h-4 w-4 ml-1" />
 					</Link>
 				</div>
@@ -65,10 +65,10 @@ const Connect = () => {
 					<p className="max-w-[6ch] w-full">Email</p>
 					<Link
 						className="flex items-center decoration-1 text-muted-foreground decoration-muted-foreground hover:text-foreground hover:decoration-foreground transition-colors border-b border-muted-foreground/0 hover:border-foreground"
-						href={"mailto:pranavrajveer.workmail@gmail.com"}
+						href={"mailto:jainambagrecha16@gmail.com"}
 						target="_blank"
 					>
-						<p className="truncate">pranavrajveer.workmail@gmail.com</p>
+						<p className="truncate">jainambagrecha16@gmail.com</p>
 						<ArrowUpRight className="h-4 w-4 ml-1" />
 					</Link>
 				</div>

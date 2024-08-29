@@ -16,7 +16,7 @@ import {
 import { Separator } from "./ui/separator";
 
 const projects: {
-	href: string;
+	href?: string;
 	title: string;
 	description: string;
 	stack: string[];
@@ -28,31 +28,24 @@ const projects: {
 		title: "EventHive - Event Booking with ease",
 		description:
 			"Linguify is a fun and engaging language learning app that uses gamification and bite-sized lessons to make acquiring a new language enjoyable. ",
-		stack: ["Next.js", "Tailwind CSS", "Drizzle","PostGres","ReactAdmin"],
+		stack: ["Hono", "Tailwind CSS", "Prisma","PostGres","React","TypeScript","Cloudflare Workers"],
 		repo: "https://github.com/jainam-b/event-management",
-		X:   "https://x.com/Jainambagr67095"
+		// X:   "https://x.com/Jainambagr67095"
 	},
 	{
-		href: "https://authify.pranavrajveer.com/",
-		title: "Authify - Authentication for Devs",
-		description: "Rated as Top-20 products of the day as Authentication Template with NextAuth on ProductHunt.",
-		stack: ["Next.js", "Tailwind CSS", "Prisma", "NextAuth"],
-		repo: "https://github.com/Neon-20/Authify",
+		// href: "https://authify.pranavrajveer.com/",
+		title: "Digital Canteen: Where Convenience Meets Flavor",
+		description: "Digital Canteen: Save time and skip the lines. Order your meals quickly and effortlessly, giving you more time to focus on what matters most—your studies.",
+		stack: ["Express", "Tailwind CSS", "MongoDB", "React","Razorpay","Node js"],
+		repo: "https://github.com/jainam-b/digital-Canteen/",
 	},
 	{
-		href: "https://filemagnet.pranavrajveer.com/",
-		title: "FileMagnet - Convert files with ease.",
-		description: "FileMagnet is a free file converter that helps you convert file formats without any hassle. Under the hood it doesn't use any db or server to store files.",
-		stack: ["Next.js", "Tailwind CSS", "FFMPeg", "Wasm","Shadcn"],
-		repo: "https://github.com/Neon-20/FileMagnet-File-Converter",
-	},
-	{
-		href: "https://developersden.pranavrajveer.com/",
-		title: "DevelopersDen - Add resources on the fly",
-		description: "DevelopersDen is an open source collection of quality resources for developers, designers & backend nerds.",
-		stack: ["Next.js", "Tailwind CSS", "SupaBase","Shadcn"],
-		repo: "https://github.com/Neon-20/developersDen",
-	},
+		href: "https://blog-jainam-b.vercel.app/",
+		title: "Medium Blog Clone: Seamless Blogging Experience",
+		description: "Create and share your thoughts effortlessly with our Medium blog clone. Enjoy a sleek, user-friendly interface and all the essential features for a perfect blogging experience",
+		stack: ["Express", "Tailwind CSS", "Prisma","Postgres", "React","Node.js"],
+		repo: "https://github.com/jainam-b/Medium-Blog",
+	}
 ];
 
 const Projects = () => {
