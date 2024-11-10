@@ -3,15 +3,15 @@ import { FaHashtag } from "react-icons/fa";
 
 const tools: { title: string; description: string; href: string }[] = [
   {
-    title: "DM2BUY",
-    description: "Full Stack Developer Intern (July 2024 - Present)",
-    href: "#", // Replace with actual link when available
+    title: "Stealth AI Startup",
+    description: "Full Stack Developer Intern (October 2024 - Present)",
+    href: "https://www.linkedin.com/company/stealthaistartup/mycompany/",
   },
-//   {
-//     title: "AugmentCode",
-//     description: "AI Software Engineer on augmentChat. (Part-Time)",
-//     href: "https://www.linkedin.com/company/augmentinc/mycompany/",
-//   },
+  {
+    title: "DM2BUY",
+    description: "Full Stack Developer Intern (July 2024 - November 2024)",
+    href: "https://www.linkedin.com/company/dm2buy/posts/?feedView=all", 
+  },
 //   {
 //     title: "Tour YC(S21)",
 //     description: "Founding Engineer to scale Voice AI (24' - Present)",
@@ -56,7 +56,7 @@ const Tools = () => {
             className="text-muted-foreground hover:animate-pulse hover:text-foreground border-b border-border/0 hover:border-foreground transition-colors w-fit"
             href={tool.href}
           >
-            {tool.title} - {tool.description}
+           <span className="text-white"> {tool.title}</span> - {tool.description}
           </Link>
         ))}
       </div>

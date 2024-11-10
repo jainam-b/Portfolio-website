@@ -17,7 +17,7 @@ const Connect = () => {
 				</Link>
 			</h2>
 			<div className="flex gap-4">
-					<p className="max-w-[8ch] w-full">Let’s Chat!</p>
+					<p className="max-w-[10ch] w-full">Let’s Chat!</p>
 					<Link
 						className="flex items-center decoration-1 text-muted-foreground decoration-muted-foreground hover:text-foreground hover:decoration-foreground transition-colors border-b border-muted-foreground/0 hover:border-foreground "
 						href={"https://cal.com/jainam-bagrecha"}

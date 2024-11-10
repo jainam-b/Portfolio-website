@@ -10,85 +10,103 @@ import VapiAssistant from "@/components/VapiAssistant";
 
 const Header = ({ children }: { children?: React.ReactNode }) => {
 	return (
-		<div className="space-y-4">
-			<div className="flex gap-4 items-center w-full justify-between">
-				<div className="flex items-center gap-4">
-					<Image
-						src={"/jainam.jpeg"}
-						alt="Jainam Bagrecha"
-						width={64}
-						priority
-						height={64}
-						className="rounded-full object-cover"
-					/>
-					<div className="relative">
-						<div className="block md:hidden">
-							<h1 className="text-xl leading-normal font-semibold">
-							Jainam Bagrecha
-							</h1>
-							<p className="text-muted-foreground text-lg leading-none font-medium">
-								Full Stack Developer
-								<br />
-								<span className="text-sm font-medium">Software Engineer</span>
-							</p>
-						</div>
-						<div className="hidden md:block">
-							<Text3D
-								clickToggle
-								bgColors={["bg-background", "bg-background"]}
-								textColors={["text-foreground", "text-muted-background"]}
-								containerClassName="rounded-none border-none"
-								text={
-									<div>
-										<h1 className="text-2xl leading-normal font-semibold">
-										Jainam Bagrecha
-										</h1>
-										<p className="text-muted-foreground text-lg leading-none font-medium">
-										    Software Engineer
-											<br />
-											<span className="text-base font-medium">
-											
-											</span>
-										</p>
-									</div>
-								}
-								secondaryText={
-									<div>
-										<h1 className="text-2xl leading-normal font-semibold">
-										Jainam Bagrecha
-										</h1>
-										<p className="text-muted-foreground text-lg leading-none font-medium">
-											Problem Solver
-											<br />
-											<span className="text-base font-medium">
-												Humble Guy ❤️
-											</span>
-										</p>
-									</div>
-								}
-							/>
-						</div>
-						<HoverMe className="dark:invert hidden md:block absolute h-36 w-full object-cover -top-8 end-0 -mr-32 opacity-80" />
+		<div className=" space-y-4 md:space-y-8">
+		{/* Main container with improved responsive layout */}
+		<div className="flex flex-col sm:flex-row gap-4 w-full justify-between">
+		  {/* Profile section */}
+		  <div className="flex flex-col sm:flex-row sm:items-center gap-4">
+			{/* Image - centered on mobile */}
+			<div className="flex justify-center sm:justify-start">
+			  <Image
+				src={"/jainam.jpeg"}
+				alt="Jainam Bagrecha"
+				width={64}
+				priority
+				height={64}
+				className="rounded-full object-cover"
+			  />
+			</div>
+  
+			{/* Text content with responsive styling */}
+			<div className="relative text-center sm:text-left">
+			  {/* Mobile version */}
+			  <div className="block sm:hidden">
+				<h1 className="text-xl leading-normal font-semibold">
+				  Jainam Bagrecha
+				</h1>
+				<p className="text-muted-foreground text-lg leading-tight font-medium">
+				  Full Stack Developer
+				  <br />
+				  <span className="text-sm font-medium">Software Engineer</span>
+				</p>
+			  </div>
+  
+			  {/* Desktop version */}
+			  <div className="hidden sm:block">
+				<Text3D
+				  clickToggle
+				  bgColors={["bg-background", "bg-background"]}
+				  textColors={["text-foreground", "text-muted-background"]}
+				  containerClassName="rounded-none border-none"
+				  text={
+					<div>
+					  <h1 className="text-2xl leading-normal font-semibold">
+						Jainam Bagrecha
+					  </h1>
+					  <p className="text-muted-foreground text-lg leading-none font-medium">
+						Software Engineer
+						<br />
+						<span className="text-base font-medium"></span>
+					  </p>
 					</div>
+				  }
+				  secondaryText={
+					<div>
+					  <h1 className="text-2xl leading-normal font-semibold">
+						Jainam Bagrecha
+					  </h1>
+					  <p className="text-muted-foreground text-lg leading-none font-medium">
+						Problem Solver
+						<br />
+						<span className="text-base font-medium">
+						  Web Developer
+						</span>
+					  </p>
+					</div>
+				  }
+				/>
+				<HoverMe className="dark:invert hidden md:block absolute h-36 w-full object-cover -top-8 end-0 -mr-32 opacity-80" />
+			  </div>
+			</div>
+		  </div>
+  
+		  {/* Theme toggle - centered on mobile */}
+		  <div className="flex justify-center sm:justify-start order-3 sm:order-2">
+			{children}
+		  </div>
+  
+		  {/* CV button - full width on mobile */}
+		  <div className="relative order-2 sm:order-3 w-full sm:w-auto">
+			<motion.button
+			  whileHover={{ scale: 1 }}
+			  whileTap={{ scale: 0.9 }}
+			  className="w-full sm:w-auto"
+			>
+			  <Link 
+				href="https://drive.google.com/file/d/1Li6VrsWlYgAQmq3NPaG9c2atFlxJrLMV/view?usp=drive_link" 
+				target="_blank"
+				className="block w-full sm:w-auto"
+			  >
+				<div className="flex md:mt-2 justify-center items-center bg-gray-200 rounded-xl p-3 sm:p-2 tracking-wide text-muted-foreground dark:bg-transparent dark:bg-clip-text hover-effect cursor-pointer hover:animate-pulse">
+				  Hiring? Check out My CV
 				</div>
-				<div className="select-none">{children}
-				</div>
-				<div className="relative hidden md:block cursor-pointer">
-					 
-				<motion.button
-                whileHover={{ scale: 1 }}
-                whileTap={{ scale: 0.9 }}
-                >
-				<Link href="https://drive.google.com/file/d/1Li6VrsWlYgAQmq3NPaG9c2atFlxJrLMV/view?usp=drive_link" target="_blank">
-				<div className="absolute hidden md:block mt-2 items-center justify-between bg-gray-200 rounded-xl p-2 tracking-wide text-muted-foreground dark:bg-transparent dark:bg-clip-text hover-effect cursor-pointer hover:animate-pulse">
-                Hiring? Check out My CV.
-                </div>		
-				</Link>	
-				</motion.button>
-				</div>
-				</div>
-			<Separator />
+			  </Link>
+			</motion.button>
+		  </div>
 		</div>
+		
+		<Separator />
+	  </div>
 	);
 };
 

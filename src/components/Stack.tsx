@@ -31,18 +31,18 @@ import { Magnetic } from "./Magnetic";
 const stack: { name: string; icon: IconType }[] = [
 	{ name: "JavaScript", icon: SiJavascript },
 	{ name: "TypeScript", icon: SiTypescript },
-	{ name: "Python", icon: SiPython },
-	{ name: "Version Control System", icon: SiGithub },
-	{ name: "React", icon: SiReact },
-	{ name: "Next.js", icon: SiNextdotjs },
 	{ name: "Node.js", icon: SiNodedotjs },
-	{ name: "HonoJs", icon: SiExpress },
-	{ name: "Tailwind CSS", icon: SiTailwindcss },
-	{ name: "PostgreSQL", icon: SiPostgresql },
-	{ name: "Prisma", icon: SiPrisma },
+	{ name: "Next.js", icon: SiNextdotjs },
+	{ name: "React", icon: SiReact },
 	{ name: "Docker", icon: SiDocker },
+	{ name: "PostgreSQL", icon: SiPostgresql },
+	{ name: "Version Control System", icon: SiGithub },
+	{ name: "Tailwind CSS", icon: SiTailwindcss },
+	{ name: "HonoJs", icon: SiExpress },
+	{ name: "Prisma", icon: SiPrisma },
 	{ name: "AWS", icon: SiAmazon },
 	{ name: "MongoDB", icon: SiMongodb },
+	{ name: "Python", icon: SiPython },
 ];
 
 const Stack = () => {
