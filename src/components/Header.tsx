@@ -7,16 +7,30 @@ import {motion} from "framer-motion";
 import Link from "next/link";
 import VapiAssistant from "@/components/VapiAssistant";
 
-
 const Header = ({ children }: { children?: React.ReactNode }) => {
 	return (
-		<div className=" space-y-4 md:space-y-8">
+		<motion.div 
+			initial={{ opacity: 0, y: 20 }}
+			animate={{ opacity: 1, y: 0 }}
+			transition={{ duration: 0.8, ease: "easeOut" }}
+			className="space-y-4 md:space-y-8"
+		>
 		{/* Main container with improved responsive layout */}
-		<div className="flex flex-col sm:flex-row gap-4 w-full justify-between">
+		<motion.div 
+			initial={{ opacity: 0 }}
+			animate={{ opacity: 1 }}
+			transition={{ delay: 0.3, duration: 0.8 }}
+			className="flex flex-col sm:flex-row gap-4 w-full justify-between"
+		>
 		  {/* Profile section */}
 		  <div className="flex flex-col sm:flex-row sm:items-center gap-4">
 			{/* Image - centered on mobile */}
-			<div className="flex justify-center sm:justify-start">
+			<motion.div 
+				initial={{ scale: 0 }}
+				animate={{ scale: 1 }}
+				transition={{ delay: 0.5, duration: 0.5, type: "spring" }}
+				className="flex justify-center sm:justify-start"
+			>
 			  <Image
 				src={"/jainam.jpeg"}
 				alt="Jainam Bagrecha"
@@ -25,12 +39,17 @@ const Header = ({ children }: { children?: React.ReactNode }) => {
 				height={64}
 				className="rounded-full object-cover"
 			  />
-			</div>
+			</motion.div>
   
 			{/* Text content with responsive styling */}
 			<div className="relative text-center sm:text-left">
 			  {/* Mobile version */}
-			  <div className="block sm:hidden">
+			  <motion.div 
+				initial={{ opacity: 0, x: -20 }}
+				animate={{ opacity: 1, x: 0 }}
+				transition={{ delay: 0.7, duration: 0.5 }}
+				className="block sm:hidden"
+			  >
 				<h1 className="text-xl leading-normal font-semibold">
 				  Jainam Bagrecha
 				</h1>
@@ -39,10 +58,15 @@ const Header = ({ children }: { children?: React.ReactNode }) => {
 				  <br />
 				  <span className="text-sm font-medium">Software Engineer</span>
 				</p>
-			  </div>
+			  </motion.div>
   
 			  {/* Desktop version */}
-			  <div className="hidden sm:block">
+			  <motion.div 
+				initial={{ opacity: 0, x: -20 }}
+				animate={{ opacity: 1, x: 0 }}
+				transition={{ delay: 0.7, duration: 0.5 }}
+				className="hidden sm:block"
+			  >
 				<Text3D
 				  clickToggle
 				  bgColors={["bg-background", "bg-background"]}
@@ -76,17 +100,27 @@ const Header = ({ children }: { children?: React.ReactNode }) => {
 				  }
 				/>
 				<HoverMe className="dark:invert hidden md:block absolute h-36 w-full object-cover -top-8 end-0 -mr-32 opacity-80" />
-			  </div>
+			  </motion.div>
 			</div>
 		  </div>
   
 		  {/* Theme toggle - centered on mobile */}
-		  <div className="flex justify-center sm:justify-start order-3 sm:order-2">
+		  <motion.div 
+			initial={{ opacity: 0, y: -20 }}
+			animate={{ opacity: 1, y: 0 }}
+			transition={{ delay: 0.9, duration: 0.5 }}
+			className="flex justify-center sm:justify-start order-3 sm:order-2"
+		  >
 			{children}
-		  </div>
+		  </motion.div>
   
 		  {/* CV button - full width on mobile */}
-		  <div className="relative order-2 sm:order-3 w-full sm:w-auto">
+		  <motion.div 
+			initial={{ opacity: 0, scale: 0.8 }}
+			animate={{ opacity: 1, scale: 1 }}
+			transition={{ delay: 1.1, duration: 0.5 }}
+			className="relative order-2 sm:order-3 w-full sm:w-auto"
+		  >
 			<motion.button
 			  whileHover={{ scale: 1 }}
 			  whileTap={{ scale: 0.9 }}
@@ -102,11 +136,17 @@ const Header = ({ children }: { children?: React.ReactNode }) => {
 				</div>
 			  </Link>
 			</motion.button>
-		  </div>
-		</div>
+		  </motion.div>
+		</motion.div>
 		
-		<Separator />
-	  </div>
+		<motion.div
+			initial={{ scaleX: 0 }}
+			animate={{ scaleX: 1 }}
+			transition={{ delay: 1.3, duration: 0.5 }}
+		>
+			<Separator />
+		</motion.div>
+	  </motion.div>
 	);
 };
 

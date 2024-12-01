@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import Link from "next/link";
 import { IconType } from "react-icons";
 import { FaHashtag } from "react-icons/fa";
@@ -27,6 +27,7 @@ import {
 	SiGithub
 } from "react-icons/si";
 import { Magnetic } from "./Magnetic";
+import { useRef } from "react";
 
 const stack: { name: string; icon: IconType }[] = [
 	{ name: "JavaScript", icon: SiJavascript },
@@ -46,9 +47,25 @@ const stack: { name: string; icon: IconType }[] = [
 ];
 
 const Stack = () => {
+	const ref = useRef<HTMLDivElement>(null);
+	const { scrollYProgress } = useScroll({
+		target: ref,
+		offset: ["0 1", "1.33 1"]
+	});
+	const opacity = useTransform(scrollYProgress, [0, 1], [0, 1]);
+	const y = useTransform(scrollYProgress, [0, 1], [20, 0]);
+
 	return (
-		<section id="stack">
-			<h2 className="text-lg font-semibold flex items-center">
+		<motion.section 
+			ref={ref}
+			id="stack"
+			style={{ opacity, y }}
+		>
+			<motion.h2 
+				className="text-lg font-semibold flex items-center"
+				whileHover={{ x: 5 }}
+				transition={{ duration: 0.2 }}
+			>
 				Tech-Stack
 				<Link
 					className="text-muted-foreground"
@@ -58,8 +75,13 @@ const Stack = () => {
 				>
 					<FaHashtag className="ml-2 h-3 w-3" />
 				</Link>
-			</h2>
-			<div className="flex gap-4 flex-wrap py-3 ">
+			</motion.h2>
+			<motion.div 
+				className="flex gap-4 flex-wrap py-3"
+				initial={{ opacity: 0, y: 20 }}
+				animate={{ opacity: 1, y: 0 }}
+				transition={{ duration: 0.5, delay: 0.2 }}
+			>
 				{stack.map((tech, i) => (
 					<Magnetic stretch="sm" key={i}>
 						<motion.div
@@ -75,12 +97,16 @@ const Stack = () => {
 						</motion.div>
 					</Magnetic>
 				))}
-			</div>
-			<p>
+			</motion.div>
+			<motion.p
+				initial={{ opacity: 0, y: 20 }}
+				animate={{ opacity: 1, y: 0 }}
+				transition={{ duration: 0.5, delay: 0.4 }}
+			>
 				{`My strength is building core web applications which can serve people throughout the globe.
 				I'm currently working with Typescript, NextJS and HonoJS.  For me my first ❤️ is javaScript.  `}
-			</p>
-		</section>
+			</motion.p>
+		</motion.section>
 	);
 };
 

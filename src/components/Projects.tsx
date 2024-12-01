@@ -15,11 +15,18 @@ import {
   CardTitle,
 } from "./ui/card";
 import { Separator } from "./ui/separator";
-import { useState } from 'react';
-import { motion } from 'framer-motion';
+import { useState, useRef } from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
 
 const Projects = () => {
   const [hoveredIndex, setHoveredIndex] = useState(null);
+  const ref = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "end start"]
+  });
+  const opacity = useTransform(scrollYProgress, [0, 0.5], [0, 1]);
+  const y = useTransform(scrollYProgress, [0, 0.5], [100, 0]);
 
   const projects = [
     {
@@ -35,7 +42,7 @@ const Projects = () => {
       href: "https://regis-omega.vercel.app/",
       title: "Regis Digital: Empowering Digital Solutions",
       description: "Regis Digital: Designed to streamline operations and boost digital engagement, this project focuses on delivering customized digital solutions tailored to client needs.",
-      stack: ["React", "Framer Motion", "Tailwind CSS", "Node.js"],
+      stack: ["React", "Framer Motion", "Tailwind CSS", "Next.js"],
       repo: "https://github.com/jainam-b/regis-digital/", 
       image: "https://res.cloudinary.com/diyfjjyzv/image/upload/v1731213539/d1mjo8zcj2kszn1gnn19.png"
     },
@@ -49,6 +56,14 @@ const Projects = () => {
       image: "https://res.cloudinary.com/diyfjjyzv/image/upload/v1731212814/ltc81c76cs08phqyuvkh.png"
     },
     {
+      href: "https://legal-edge.vercel.app/",
+      title: "Expert Legal Support for Your Growing Business",
+      description: "Empowering SMEs with comprehensive legal solutions that protect your business and fuel your growth. Get started with tailored legal services designed for modern businesses.",
+      stack: ["React", "Framer Motion", "Tailwind CSS", "Next.js","TypeScript","Payment Gateway","Razorpay"],
+      repo: "https://github.com/jainam-b/Medium-Blog",
+      image: "https://res.cloudinary.com/diyfjjyzv/image/upload/v1733058643/vapztsf8oyjyddbzfc1w.png"
+    },
+    {
       href: "https://blog-jainam-b.vercel.app/",
       title: "Medium Blog Clone: Seamless Blogging Experience",
       description: "Create and share your thoughts effortlessly with our Medium blog clone. Enjoy a sleek, user-friendly interface and all the essential features for a perfect blogging experience",
@@ -56,11 +71,19 @@ const Projects = () => {
       repo: "https://github.com/jainam-b/Medium-Blog",
       image: "https://res.cloudinary.com/diyfjjyzv/image/upload/v1731213329/anchyrdangmbjtxybhlu.png"
     },
+    
   ];
 
   const cardVariants = {
     hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0 },
+    visible: (i: number) => ({
+      opacity: 1,
+      y: 0,
+      transition: {
+        delay: i * 0.1,
+        duration: 0.5,
+      }
+    }),
     hover: { 
       y: -5,
       transition: {
@@ -70,8 +93,16 @@ const Projects = () => {
   };
 
   return (
-    <section className="w-full max-w-6xl mx-auto px-4 py-8" id="projects">
-      <h2 className="text-xl md:text-2xl flex flex-wrap items-center font-bold pb-4 md:pb-6 bg-clip-text">
+    <motion.section 
+      ref={ref}
+      style={{ opacity, y }}
+      className="w-full max-w-6xl mx-auto px-2 sm:px-4 py-4 sm:py-8" 
+      id="projects"
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, margin: "-100px" }}
+    >
+      <h2 className="text-lg sm:text-xl md:text-2xl flex flex-wrap items-center font-bold pb-3 sm:pb-4 md:pb-6 bg-clip-text">
         Projects{" "}
         <Link
           className="text-muted-foreground hover:text-gray-900 transition-colors"
@@ -79,27 +110,29 @@ const Projects = () => {
           scroll
           href="/#projects"
         >
-          <FaHashtag className="ml-2 h-4 w-4" />
+          <FaHashtag className="ml-2 h-3 w-3 sm:h-4 sm:w-4" />
         </Link>
-        <span aria-hidden className="text-muted-foreground/50 text-sm md:text-base ml-2 font-normal">
+        <span aria-hidden className="text-muted-foreground/50 text-xs sm:text-sm md:text-base ml-2 font-normal">
           (sorted by most recent)
         </span>
       </h2>
 
-      <div className="grid grid-cols-1 gap-6 md:gap-8">
+      <div className="grid grid-cols-1 gap-4 sm:gap-6 md:gap-8">
         {projects.map((project, i) => (
           <motion.div
             key={i}
             className="group"
             onMouseEnter={() => setHoveredIndex(null)}
             onMouseLeave={() => setHoveredIndex(null)}
+            custom={i}
             initial="hidden"
-            animate="visible"
+            whileInView="visible"
             whileHover="hover"
+            viewport={{ once: true, margin: "-50px" }}
             variants={cardVariants}
           >
-            <Card className="overflow-hidden border border-gray-200 shadow-lg hover:shadow-xl transition-all duration-300 rounded-xl">
-              <div className="relative h-[200px] sm:h-[300px] md:h-[400px] w-full overflow-hidden group">
+            <Card className="overflow-hidden border border-gray-200 shadow-md hover:shadow-xl transition-all duration-300 rounded-lg sm:rounded-xl">
+              <div className="relative h-[150px] sm:h-[300px] md:h-[400px] w-full overflow-hidden group">
                 <Image
                   src={project.image}
                   alt={project.title}
@@ -118,34 +151,34 @@ const Projects = () => {
                   >
                     <Button 
                       variant="secondary"
-                      className="shadow-lg transform -translate-y-2 group-hover:translate-y-0 transition-all duration-300"
+                      className="shadow-lg transform -translate-y-2 group-hover:translate-y-0 transition-all duration-300 text-xs sm:text-sm"
                     >
                       <span className="hidden sm:inline">View Live Project</span>
                       <span className="sm:hidden">View Project</span>
-                      <ArrowUpRight className="ml-2 h-4 w-4" />
+                      <ArrowUpRight className="ml-1 sm:ml-2 h-3 w-3 sm:h-4 sm:w-4" />
                     </Button>
                   </Link>
                 )}
               </div>
 
-              <CardHeader className="space-y-2 p-4 md:p-6">
-                <CardTitle className="text-lg md:text-xl font-bold tracking-tight line-clamp-2">
+              <CardHeader className="space-y-1 sm:space-y-2 p-3 sm:p-4 md:p-6">
+                <CardTitle className="text-base sm:text-lg md:text-xl font-bold tracking-tight line-clamp-2">
                   {project.title}
                 </CardTitle>
-                <CardDescription className="text-sm md:text-base leading-relaxed text-gray-600">
+                <CardDescription className="text-xs sm:text-sm md:text-base leading-relaxed text-gray-600">
                   {project.description}
                 </CardDescription>
               </CardHeader>
 
-              <CardContent className="space-y-4 md:space-y-6 p-4 md:p-6">
+              <CardContent className="space-y-3 sm:space-y-4 md:space-y-6 p-3 sm:p-4 md:p-6">
                 <Separator className="bg-gray-200" />
-                <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
+                <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 sm:gap-3">
                   {project.href && (
                     <Link target="_blank" href={project.href} className="w-full sm:w-auto">
                       <Button 
-                        className="w-full sm:w-auto rounded-full bg-gradient-to-r from-gray-900 to-gray-700 text-white hover:shadow-lg transition-all duration-300"
+                        className="w-full sm:w-auto rounded-full bg-gradient-to-r from-gray-900 to-gray-700 text-white hover:shadow-lg transition-all duration-300 text-xs sm:text-sm h-8 sm:h-10"
                       >
-                        <Globe className="mr-2 size-4" />
+                        <Globe className="mr-1.5 sm:mr-2 size-3 sm:size-4" />
                         Website
                       </Button>
                     </Link>
@@ -154,20 +187,20 @@ const Projects = () => {
                     <Link target="_blank" href={project.repo} className="w-full sm:w-auto">
                       <Button 
                         variant="outline"
-                        className="w-full sm:w-auto rounded-full border-2 transition-all duration-300"
+                        className="w-full sm:w-auto rounded-full border-2 transition-all duration-300 text-xs sm:text-sm h-8 sm:h-10"
                       >
-                        <GitHubLogoIcon className="mr-2 size-4" />
+                        <GitHubLogoIcon className="mr-1.5 sm:mr-2 size-3 sm:size-4" />
                         Repository
                       </Button>
                     </Link>
                   )}
                 </div>
 
-                <div className="flex flex-wrap items-center gap-2">
+                <div className="flex flex-wrap items-center gap-1.5 sm:gap-2">
                   {project.stack.map((tech) => (
                     <Badge 
                       key={tech}
-                      className="px-2 md:px-3 py-1 text-xs md:text-sm rounded-full bg-gray-100 hover:bg-gray-200 text-gray-700 transition-colors duration-200" 
+                      className="px-1.5 sm:px-2 md:px-3 py-0.5 sm:py-1 text-[10px] sm:text-xs md:text-sm rounded-full bg-gray-100 hover:bg-gray-200 text-gray-700 transition-colors duration-200" 
                     >
                       {tech}
                     </Badge>
@@ -178,7 +211,7 @@ const Projects = () => {
           </motion.div>
         ))}
       </div>
-    </section>
+    </motion.section>
   );
 };
 
