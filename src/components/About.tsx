@@ -38,13 +38,13 @@ const About = () => {
 				<motion.p 
 					className="text-lg leading-relaxed text-muted-foreground"
 				>
-					I&apos;m <span className="text-white"> Jainam Bagrecha </span>, a dynamic full-stack developer with a passion for crafting exceptional digital experiences. Leveraging deep expertise in TypeScript, React, Next.js, and modern database technologies, I transform complex challenges into elegant, user-centric solutions that drive real business impact.
+					I&apos;m Jainam Bagrecha, a full-stack developer skilled in TypeScript, React, Next.js, and modern databases. I specialize in creating scalable, user-centric solutions with clean, maintainable code, blending technical expertise with creative problem-solving to deliver impactful digital experiences.
 				</motion.p>
-				<motion.p 
+				{/* <motion.p 
 					className="mt-4 text-lg leading-relaxed text-muted-foreground"
 				>
 					My approach combines technical excellence with creative problem-solving, allowing me to build scalable applications that not only meet current needs but are also future-ready. I take pride in writing clean, maintainable code and implementing best practices that ensure long-term success.
-				</motion.p>
+				</motion.p> */}
 			</motion.section>
 			<Present />
 		</>
@@ -86,9 +86,9 @@ const Present = () => {
 			<motion.p 
 				className="text-lg leading-relaxed text-muted-foreground"
 			>
-				Currently, I&apos;m thriving as a <span className="text-white"> Full Stack Developer Intern  at an innovative AI startup </span> where I&apos;m actively shaping the future of technology. In this role, I seamlessly blend modern web development practices with cutting-edge AI technologies, contributing to groundbreaking solutions that push the boundaries of what&apos;s possible.
+				I&apos;m currently a Full Stack Developer Intern at an AI startup, merging modern web development with cutting-edge AI to create innovative solutions. Alongside, I work on <span className="text-white">freelance </span> projects and side ventures, driven by a passion for blending AI and web development. Let&apos;s connect to build something extraordinary!
 			</motion.p>
-			<motion.p 
+			{/* <motion.p 
 				className="mt-4 text-lg leading-relaxed text-muted-foreground"
 			>
 				Beyond my internship, I remain deeply engaged in the tech ecosystem through
@@ -102,7 +102,7 @@ const Present = () => {
 					let&apos;s connect
 				</Link>
 				{' '}and explore how we can create something extraordinary together.
-			</motion.p>
+			</motion.p> */}
 		</motion.section>
 	);
 };
